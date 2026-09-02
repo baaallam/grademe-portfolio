@@ -1,17 +1,15 @@
-#include <stddef.h>
-
-char	*strrchr(char *str, int c)
+char	*strrchr(const char *s, int c)
 {
-	char	*last;
+	const char	*last;
 
-	last = NULL;
-	while (*str != '\0')
+	last = 0;
+	while (1)
 	{
-		if (*str == (char)c)
-			last = str;
-		str++;
+		if (*s == (char)c)
+			last = s;
+		if (*s == '\0')
+			break ;
+		s++;
 	}
-	if (*str == (char)c)
-		last = str;
-	return (last);
+	return ((char *)last);
 }
