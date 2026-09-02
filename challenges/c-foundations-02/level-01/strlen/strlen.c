@@ -1,13 +1,11 @@
-#include <unistd.h>
+#include <stddef.h>
 
-int	strlen(const char *s)
+size_t	strlen(const char *str)
 {
-	unsigned int i = 0;
-	if (s[0]=='\0'){
-		return (0);
-	}
-	while (s[i]!='\0'){
-		i++;
-	}
-	return (i);
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
